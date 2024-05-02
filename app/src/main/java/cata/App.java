@@ -29,7 +29,7 @@ public class App {
         String[] parts = inputString.split(" ");
         
         if(parts.length < 3 || parts.length > 3){
-            throw new Exception("Неправильный формат строки");
+            throw new Exception("Illegal string format");
         }
         
         boolean itsRomeFirst = false;
@@ -43,14 +43,14 @@ public class App {
         }
         
         if(itsRomeSecond != itsRomeFirst){
-            throw new Exception("Обе цифры должны быть либо римскими либо арабскими");
+            throw new Exception("Both numerals must be either Roman or Arabic.");
         }
         
         if(!itsRomeFirst){
             int firtsNumber = Integer.parseInt(parts[0]);
             int secondNumber = Integer.parseInt(parts[2]);
             if(firtsNumber > 10 || secondNumber > 10){
-                throw new Exception("Числа могут быть не больше 10");
+                throw new Exception("Numbers can be no more than 10");
             }
             if(parts[1].equals("+")){
                 System.out.println(firtsNumber + secondNumber);
@@ -59,26 +59,26 @@ public class App {
             }else if(parts[1].equals("/")){
                 System.out.println(firtsNumber / secondNumber);
             }else {
-                 throw new Exception("Неверный оператор");
+                 throw new Exception("Invalid operator");
             }
         }else{
             RomanNumeralsConverter converter = new RomanNumeralsConverter();
             Integer firtsNumber = converter.convertRomanNumeralsToInteger(parts[0]);
             Integer secondNumber = converter.convertRomanNumeralsToInteger(parts[2]);
             if(firtsNumber > 10 || secondNumber > 10){
-                throw new Exception("Числа могут быть не больше 10");
+                throw new Exception("Numbers can be no more than 10");
             }
             if(parts[1].equals("+")){
                 System.out.println(converter.convertIntegerToRomanNumerals(firtsNumber + secondNumber));
             }else if(parts[1].equals("-")){
                 if((firtsNumber - secondNumber) <= 0){
-                    throw new Exception("Римские цифры не могут быть отрицательными");
+                    throw new Exception("Roman numerals cannot be negative");
                 }
                 System.out.println(converter.convertIntegerToRomanNumerals(firtsNumber - secondNumber));
             }else if(parts[1].equals("/")){
                 System.out.println(converter.convertIntegerToRomanNumerals(firtsNumber / secondNumber));
             }else {
-                 throw new Exception("Неверный оператор");
+                 throw new Exception("Invalid operator");
             }
         }
     }
