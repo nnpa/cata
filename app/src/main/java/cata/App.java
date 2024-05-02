@@ -58,7 +58,9 @@ public class App {
                 System.out.println(firtsNumber - secondNumber);
             }else if(parts[1].equals("/")){
                 System.out.println(firtsNumber / secondNumber);
-            }else {
+            }else if (parts[1].equals("*")){
+                System.out.println(firtsNumber * secondNumber);
+            } else {
                  throw new Exception("Invalid operator");
             }
         }else{
@@ -77,7 +79,10 @@ public class App {
                 System.out.println(converter.convertIntegerToRomanNumerals(firtsNumber - secondNumber));
             }else if(parts[1].equals("/")){
                 System.out.println(converter.convertIntegerToRomanNumerals(firtsNumber / secondNumber));
-            }else {
+            }else if (parts[1].equals("*")){
+                System.out.println(converter.convertIntegerToRomanNumerals(firtsNumber * secondNumber));
+
+            } else {
                  throw new Exception("Invalid operator");
             }
         }
